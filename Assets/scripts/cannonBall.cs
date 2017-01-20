@@ -12,6 +12,7 @@ public class cannonBall : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		Destroy (gameObject, 5);
         //this.transform.rotation = boat.transform.rotation;
     }
 
@@ -26,6 +27,7 @@ public class cannonBall : MonoBehaviour
         {
             body.AddRelativeForce(Vector2.left * ballSpeed);
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -35,7 +37,13 @@ public class cannonBall : MonoBehaviour
             flyRight = true;
         }
     }
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "enemy")
+		{
+			enemyHealth eh = (enemyHealth) coll.transform.GetComponent("enemyHealth");
+			eh.takeDamage ();
+			Destroy (this.gameObject);
+		}
+	}
 }
-
-
-

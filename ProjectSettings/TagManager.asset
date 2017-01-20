@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cannonRight
   - cannonLeft
+  - enemy
   layers:
   - Default
   - TransparentFX
