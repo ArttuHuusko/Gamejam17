@@ -12,7 +12,7 @@ public class cannonBall : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Rigidbody2D body = GetComponent( typeof(Rigidbody2D)) as Rigidbody2D;
+        //this.transform.rotation = boat.transform.rotation;
     }
 
     // Update is called once per frame
