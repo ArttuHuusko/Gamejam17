@@ -3,13 +3,15 @@ using System.Collections;
 
 public class boatCannons : MonoBehaviour {
 
+
+    public GameObject boat;
     public KeyCode CannonShoot = KeyCode.T;
     public GameObject cannonBall;
 
 	// Use this for initialization
 	void Start () 
     {
-	    
+        boat = GameObject.Find("boat");
 	}
 	
 	// Update is called once per frame
@@ -17,7 +19,7 @@ public class boatCannons : MonoBehaviour {
     {
         if (Input.GetKeyDown(CannonShoot))
         {
-            Instantiate(cannonBall, this.transform.position, Quaternion.identity);
+            Instantiate(cannonBall, this.transform.position, boat.transform.rotation);
         }
 	}
 }

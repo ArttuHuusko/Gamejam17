@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09ac97a8b2aa8e47809e466760cf9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boat: {fileID: 0}
+  boat: {fileID: 1000012338675966, guid: c5455137af7d3bf4888e3d357cfefd9e, type: 2}
   ballSpeed: 10
   body: {fileID: 50000013137367598}
 --- !u!212 &212000013082011336
