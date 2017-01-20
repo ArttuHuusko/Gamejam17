@@ -11,7 +11,7 @@ public class boatCannons : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        boat = GameObject.Find("boat");
+        boat = GameObject.Find("playerBoat");
 	}
 	
 	// Update is called once per frame
