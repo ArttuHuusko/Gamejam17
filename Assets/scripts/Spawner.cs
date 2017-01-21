@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class Spawner : MonoBehaviour {
 	public float waveWait;
 	public bool spawning = false;
 	public int waveProgress;
+	public Transform[] spawnPoints;
+	public int i;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (SpawnWave ());
@@ -31,43 +34,44 @@ public class Spawner : MonoBehaviour {
 		spawning = true;
 		while (spawning == true) 
 		{
-			Vector3 spawnPos = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
+			i = Random.Range(0,3);
+			Transform pos = spawnPoints[i];
 			Quaternion spawnRotation = Quaternion.identity;
 			if (waveCounter == 1) 
 			{
 				if (spawnCounter < 8)
-					Instantiate (enemyArray [0], spawnPos, spawnRotation);
+					Instantiate (enemyArray [0], pos.position, pos.rotation);
 				
 			}
 			if (waveCounter == 2) 
 			{
 				if (spawnCounter < 6)
-					Instantiate (enemyArray [0], spawnPos, spawnRotation);
+					Instantiate (enemyArray [0], pos.position, pos.rotation);
 				if (spawnCounter > 5 && spawnCounter < 8)
-					Instantiate (enemyArray [1], spawnPos, spawnRotation);
+					Instantiate (enemyArray [1], pos.position, pos.rotation);
 			}
 			if (waveCounter == 3) 
 			{
 				if (spawnCounter < 4)
-					Instantiate (enemyArray [0], spawnPos, spawnRotation);
+					Instantiate (enemyArray [0], pos.position, pos.rotation);
 				if (spawnCounter > 3 && spawnCounter < 7)
-					Instantiate (enemyArray [1], spawnPos, spawnRotation);
+					Instantiate (enemyArray [1], pos.position, pos.rotation);
 				if (spawnCounter == 7)
-					Instantiate (enemyArray [2], spawnPos, spawnRotation);
+					Instantiate (enemyArray [2], pos.position, pos.rotation);
 			}
 			if (waveCounter == 4) 
 			{
 				if (spawnCounter < 6)
-					Instantiate (enemyArray [1], spawnPos, spawnRotation);
+					Instantiate (enemyArray [1], pos.position, pos.rotation);
 				if (spawnCounter > 5 && spawnCounter < 8)
-					Instantiate (enemyArray [2], spawnPos, spawnRotation);
+					Instantiate (enemyArray [2], pos.position, pos.rotation);
 			}
 			if (waveCounter == 5) 
 			{
 				if (spawnCounter < 5)
-					Instantiate (enemyArray [1], spawnPos, spawnRotation);
+					Instantiate (enemyArray [1], pos.position, pos.rotation);
 				if (spawnCounter > 4 && spawnCounter < 8)
-					Instantiate (enemyArray [2], spawnPos, spawnRotation);
+					Instantiate (enemyArray [2], pos.position, pos.rotation);
 			}
 			spawnCounter ++ ;
 			yield return new WaitForSeconds (spawnWait);
