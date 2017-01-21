@@ -6,9 +6,10 @@ public class cannonBall : MonoBehaviour
     bool flyRight;
 	public Vector3 spawnValues;
     public GameObject boat;
-    public float ballSpeed = 10f;
+    public float ballSpeed = 20f;
     public Rigidbody2D body;
 	public ParticleSystem ripple;
+	public float maxSpeed = 10f;
     // Use this for initialization
     void Start()
     {
@@ -23,10 +24,18 @@ public class cannonBall : MonoBehaviour
         if (flyRight == true)
         {
             body.AddRelativeForce(Vector2.right * ballSpeed);
+			if (body.velocity.magnitude > maxSpeed) 
+			{
+				body.velocity = body.velocity.normalized * maxSpeed;
+			}
         }
         else
         {
             body.AddRelativeForce(Vector2.left * ballSpeed);
+			if (body.velocity.magnitude > maxSpeed) 
+			{
+				body.velocity = body.velocity.normalized * maxSpeed;
+			}
         }
 
     }
@@ -46,10 +55,16 @@ public class cannonBall : MonoBehaviour
 			eh.takeDamage ();
 			Destroy (this.gameObject);
 		}
+		/*else if (coll.gameObject.tag == "player")
+		{
+			playerHealth ph = (playerHealth) coll.transform.GetComponent("playerHealth");
+			ph.takeDamage ();
+			Destroy (this.gameObject);
+		}*/
 	}
 	IEnumerator killThis ()
 	{
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (1f);
 		Vector3 spawnPos = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
 		Quaternion spawnRotation = Quaternion.identity;
 		Instantiate (ripple, spawnPos,spawnRotation);

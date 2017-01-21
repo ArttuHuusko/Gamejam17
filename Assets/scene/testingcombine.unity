@@ -90,42 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &408703646 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012349895722, guid: d894694cbaff92544bf9c061948f9646,
-    type: 2}
-  m_PrefabInternal: {fileID: 847344445}
---- !u!50 &408703647
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 408703646}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &408703651
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 408703646}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.003200531, y: -0.022408843}
-  serializedVersion: 2
-  m_Size: {x: 0.4028576, y: 0.9022527}
 --- !u!1 &756865690
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,9 +216,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000010113240992, guid: d894694cbaff92544bf9c061948f9646,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 50000012166584574, guid: d894694cbaff92544bf9c061948f9646, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d894694cbaff92544bf9c061948f9646, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1036086394 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1884261766}
+--- !u!114 &1036086395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036086394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a12cf3d4dfb954ebd8b25719bbab4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHp: 1
+--- !u!61 &1036086402
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036086394}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.81}
 --- !u!1001 &1884261766
 Prefab:
   m_ObjectHideFlags: 0
@@ -409,6 +410,10 @@ Prefab:
         type: 2}
       propertyPath: m_Offset.x
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}

@@ -21,12 +21,23 @@ public class playerHealth : MonoBehaviour {
 			health = 0;
 		}
 	}
-	void OnCollisionEnter2D (Collision2D coll)
+	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == ("enemy")) 
+		if (coll.gameObject.tag == "enemyFire")
 		{
-			health--;
-			Debug.Log ("We be hit sire");
+			takeDamage ();
+			Destroy (coll.gameObject);
 		}
+		/*else if (coll.gameObject.tag == "player")
+		{
+			playerHealth ph = (playerHealth) coll.transform.GetComponent("playerHealth");
+			ph.takeDamage ();
+			Destroy (this.gameObject);
+		}*/
+	}
+	public void takeDamage ()
+	{
+		health--;
+		Debug.Log (gameObject.name);
 	}
 }

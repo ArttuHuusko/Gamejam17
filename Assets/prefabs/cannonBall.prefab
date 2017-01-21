@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000010845395034}
   m_Layer: 0
   m_Name: cannonBall
-  m_TagString: Untagged
+  m_TagString: enemyFire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,9 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnValues: {x: 0, y: 0, z: 0}
   boat: {fileID: 0}
-  ballSpeed: 5
+  ballSpeed: 10
   body: {fileID: 50000013137367598}
   ripple: {fileID: 198000014149184728, guid: ab42adf3713e28142a83acf667a2a089, type: 2}
+  maxSpeed: 10
 --- !u!212 &212000013082011336
 SpriteRenderer:
   m_ObjectHideFlags: 1

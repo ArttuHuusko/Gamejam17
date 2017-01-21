@@ -384,6 +384,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!114 &114000010558727854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,6 +419,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!114 &114000013112202732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +436,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!114 &114000013201556414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,6 +453,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!114 &114000013454005404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,6 +470,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!114 &114000013872584768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -482,6 +487,7 @@ MonoBehaviour:
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
   cannonLoaded: 1
   Reload: 114
+  cannonfire: {fileID: 0}
 --- !u!212 &212000010246452686
 SpriteRenderer:
   m_ObjectHideFlags: 1

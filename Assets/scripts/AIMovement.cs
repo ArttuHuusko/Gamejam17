@@ -61,7 +61,7 @@ public class AIMovement : MonoBehaviour {
         //IF TIME MAKE BOAT START TURNING SLOW AND SPEED UP THE MORE IT TURNS (angularVelocity)
 
         float distanceFromPlayer = Vector2.Distance(player.transform.position, transform.position);
-        Debug.Log(distanceFromPlayer);
+        
 
         Vector3 dir = player.transform.position - transform.position;
         dir = player.transform.InverseTransformDirection(dir);
