@@ -22,6 +22,8 @@ GameObject:
   - 212: {fileID: 212000013666348054}
   - 50: {fileID: 50000013967591332}
   - 114: {fileID: 114000011639037978}
+  - 61: {fileID: 61000011802008918}
+  - 61: {fileID: 61000011511461984}
   m_Layer: 0
   m_Name: AIBoat1
   m_TagString: Untagged
@@ -39,6 +41,7 @@ GameObject:
   - 4: {fileID: 4000011377174242}
   - 212: {fileID: 212000010335695942}
   - 61: {fileID: 61000011013742864}
+  - 114: {fileID: 114000013614459596}
   m_Layer: 0
   m_Name: cannon (5)
   m_TagString: Untagged
@@ -56,6 +59,7 @@ GameObject:
   - 4: {fileID: 4000012411380402}
   - 212: {fileID: 212000011670874602}
   - 61: {fileID: 61000014151359786}
+  - 114: {fileID: 114000013043638560}
   m_Layer: 0
   m_Name: cannon
   m_TagString: Untagged
@@ -73,6 +77,7 @@ GameObject:
   - 4: {fileID: 4000013937243012}
   - 212: {fileID: 212000011398159484}
   - 61: {fileID: 61000011730435436}
+  - 114: {fileID: 114000012951413832}
   m_Layer: 0
   m_Name: cannon (3)
   m_TagString: Untagged
@@ -90,6 +95,7 @@ GameObject:
   - 4: {fileID: 4000011412058448}
   - 212: {fileID: 212000011676623048}
   - 61: {fileID: 61000011849142322}
+  - 114: {fileID: 114000011979413866}
   m_Layer: 0
   m_Name: cannon (2)
   m_TagString: Untagged
@@ -143,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010514953840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.55, y: 1.42, z: 0}
+  m_LocalPosition: {x: 55.5, y: -4.3, z: 0}
   m_LocalScale: {x: 4, y: 6, z: 4}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -197,6 +203,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61000011511461984
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010514953840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -3.5, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 7, y: 1}
 --- !u!61 &61000011730435436
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -211,6 +231,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61000011802008918
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010514953840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 3.5, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 7, y: 1}
 --- !u!61 &61000011849142322
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -250,8 +284,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaedf6a3331f874a9d298a64e191fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  engageTimer: 5
+  facingPlayer: 0
+  player: {fileID: 0}
   body: {fileID: 0}
+  Speed: 10
   maxSpeed: 10
+  maxTurnRate: 1.5
+--- !u!114 &114000011979413866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012710537652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+--- !u!114 &114000012951413832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012631238032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+--- !u!114 &114000013043638560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011505938412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+--- !u!114 &114000013614459596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011434755990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
 --- !u!212 &212000010335695942
 SpriteRenderer:
   m_ObjectHideFlags: 1

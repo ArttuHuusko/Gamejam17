@@ -90,39 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &253013585 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2015657706}
---- !u!61 &253013586
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 253013585}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 3.5, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 7, y: 1}
---- !u!61 &253013587
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 253013585}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -3.5, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 7, y: 1}
 --- !u!50 &610889794 stripped
 Rigidbody2D:
   m_PrefabParentObject: {fileID: 50000011607415430, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4,
@@ -254,23 +221,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
+        type: 2}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 610889794}
     - target: {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_Name
       value: AIBoat
       objectReference: {fileID: 0}
     - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
         type: 2}
-      propertyPath: body
+      propertyPath: cannonBall
       value: 
-      objectReference: {fileID: 610889794}
-    - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
+      objectReference: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7,
         type: 2}
-      propertyPath: maxTurnRate
-      value: 1.5
+    - target: {fileID: 1000012631238032, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: cannonRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011434755990, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: cannonRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012710537652, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: cannonLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011505938412, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: cannonLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
@@ -317,6 +297,11 @@ Prefab:
     - target: {fileID: 1000010077412876, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4, type: 2}
       propertyPath: m_Name
       value: boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000011607415430, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4, type: 2}
