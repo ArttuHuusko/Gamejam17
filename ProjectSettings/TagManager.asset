@@ -10,6 +10,7 @@ TagManager:
   - player
   - sideLayers
   - enemyFire
+  - spawner
   layers:
   - Default
   - TransparentFX

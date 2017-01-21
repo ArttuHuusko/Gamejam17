@@ -9,7 +9,7 @@ public class cannonBall : MonoBehaviour
     public float ballSpeed = 20f;
     public Rigidbody2D body;
 	public ParticleSystem ripple;
-	public float maxSpeed = 10f;
+	public float maxSpeed = 15f;
     // Use this for initialization
     void Start()
     {
@@ -64,7 +64,7 @@ public class cannonBall : MonoBehaviour
 	}
 	IEnumerator killThis ()
 	{
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (0.8f);
 		Vector3 spawnPos = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
 		Quaternion spawnRotation = Quaternion.identity;
 		Instantiate (ripple, spawnPos,spawnRotation);

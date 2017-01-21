@@ -19,16 +19,19 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		spawnValues = gameObject.transform.position;
 	}
-
+	public void progressWave()
+	{
+		waveProgress++;
+	}
 	IEnumerator SpawnWave ()
 	{
 		yield return new WaitForSeconds (startWait);
 		spawning = true;
 		while (spawning == true) 
 		{
-			Vector3 spawnPos = new Vector3 (-spawnValues.x, spawnValues.y, spawnValues.z);
+			Vector3 spawnPos = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
 			Quaternion spawnRotation = Quaternion.identity;
 			if (waveCounter == 1) 
 			{
@@ -67,7 +70,6 @@ public class Spawner : MonoBehaviour {
 					Instantiate (enemyArray [2], spawnPos, spawnRotation);
 			}
 			spawnCounter ++ ;
-			Debug.Log (spawnCounter);
 			yield return new WaitForSeconds (spawnWait);
 
 			if (waveProgress == 8) 
