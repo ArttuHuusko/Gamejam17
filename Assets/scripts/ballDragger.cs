@@ -7,6 +7,7 @@ public class ballDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
 	Vector3 startPos;
 	public Camera mainCamera;
+	public Canvas mainCanvas;
 
 	public void OnBeginDrag (PointerEventData eventData)
 	{
@@ -16,8 +17,8 @@ public class ballDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		transform.position = mainCamera.ScreenToWorldPoint (eventData.position) + Vector3.forward;
-		GetComponent<Image>().color = Color.white;
+		transform.position = mainCamera.ScreenToWorldPoint ((Vector3)eventData.position + (Vector3.forward * mainCanvas.planeDistance));
+		Debug.Log (mainCamera.ScreenToWorldPoint (eventData.position));
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
