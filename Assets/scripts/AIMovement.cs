@@ -50,7 +50,7 @@ public class AIMovement : MonoBehaviour {
        inFiringPositionCopy = inFiringPosition;
        engageTimerCopy = engageTimer;
        body = GetComponent<Rigidbody2D>();
-       player = GameObject.FindWithTag("player");
+       player = GameObject.FindWithTag("Player");
        
 	}
 	
@@ -143,13 +143,15 @@ public class AIMovement : MonoBehaviour {
     //turns boat when it is close to player
     void BeginEngaging()
     {
-        inFiringPosition -= Time.fixedDeltaTime;
+        //inFiringPosition -= Time.fixedDeltaTime;
         var newRotation = Quaternion.LookRotation(transform.position - player.transform.position, Vector3.forward);
         newRotation.x = 0.0f;
         newRotation.y = 0.0f;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, maxTurnRate);
 
     }
+
+    //Faces player
     void TurnToShootingPosition()
     {
         //calculates angles and differences between player and AIboat
@@ -167,7 +169,7 @@ public class AIMovement : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             shootDelayTime = true;
             retreating = true;
