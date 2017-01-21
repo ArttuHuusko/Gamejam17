@@ -15,6 +15,8 @@ public class statScene : MonoBehaviour {
 	public GameObject MidRightCannon;
 	public GameObject BotRightCannon;
 
+	public GameObject Spawner;
+
 	public playerHealth TopHealth;
 	public playerHealth MidHealth;
 	public playerHealth BotHealth;
@@ -25,6 +27,8 @@ public class statScene : MonoBehaviour {
 	public boatCannons TopRightLoaded;
 	public boatCannons MidRightLoaded;
 	public boatCannons BotRightLoaded;
+
+	public Spawner spawnStats;
 
 	public Image TopLeftSprite;
 	public Image MidLeftSprite;
@@ -40,6 +44,8 @@ public class statScene : MonoBehaviour {
 	public Text MidHp;
 	public Text BotHp;
 
+	public Text WaveProgress;
+	public Text Wavenumber;
 
 	// Use this for initialization
 	void Start () 
@@ -53,6 +59,7 @@ public class statScene : MonoBehaviour {
 		TopRightLoaded = TopRightCannon.GetComponent<boatCannons> ();
 		MidRightLoaded = MidRightCannon.GetComponent<boatCannons> ();
 		BotRightLoaded = BotRightCannon.GetComponent<boatCannons> ();
+		spawnStats = Spawner.GetComponent<Spawner> ();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +69,8 @@ public class statScene : MonoBehaviour {
 		MidHp.text = MidHealth.health.ToString();
 		BotHp.text = BotHealth.health.ToString();
 
+		WaveProgress.text = "Enemies Killed: " + spawnStats.waveProgress + "/" + spawnStats.currentWave;
+		Wavenumber.text = "Wave: " + spawnStats.waveCounter;
 		if (TopLeftLoaded.cannonLoaded == true) 
 		{
 			TopLeftSprite.sprite = Loaded;
