@@ -9,6 +9,7 @@ public class boatCannons : MonoBehaviour {
     public GameObject cannonBall;
 	public bool cannonLoaded = true; 
 	public KeyCode Reload = KeyCode.R;
+	public ParticleSystem cannonfire;
 	// Use this for initialization
 	void Start () 
     {
@@ -24,6 +25,7 @@ public class boatCannons : MonoBehaviour {
 			{
 				Instantiate (cannonBall, this.transform.position, boat.transform.rotation);
 				cannonLoaded = false;
+				cannonfire.Play ();
 			}
 		}
 		if (Input.GetKeyDown (Reload))
