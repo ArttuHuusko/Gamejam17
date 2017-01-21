@@ -6,8 +6,11 @@ public class AIMovement : MonoBehaviour {
 
     float distanceFromPlayer;
     float angleToPlayer;
+    float rotationDiff;
 
-    public Vector2 aPosition1 = new Vector2(3, 3);
+    Vector3 currentRotation;
+
+    bool turning = false;
 
     //Quaternion playerRotation = Quaternion.identity;
 
@@ -46,9 +49,10 @@ public class AIMovement : MonoBehaviour {
         {
             ApproachPlayer();
         }
-        else
+        else if (turning == false)
         {
             TurnToShootingPosition();
+            //turning = true;
         }
 
         if(body.velocity.magnitude > maxSpeed)
@@ -77,8 +81,15 @@ public class AIMovement : MonoBehaviour {
     //make it so the boat turns slowly this function does not differ from void InShootingPosition() right now 
     void TurnToShootingPosition()
     {
-        Quaternion playerRotation = player.transform.rotation;
-        transform.rotation = Quaternion.Lerp(transform.rotation, playerRotation, 1);
+        float playerRotation = player.transform.localEulerAngles.z;
+        Vector3 rotationDiff = transform.rotation.eulerAngles;
+        //rotationDiff = playerRotation.z - transform.rotation.z;
+        currentRotation = transform.eulerAngles;
+        currentRotation.z = Mathf.Lerp(currentRotation.z, playerRotation, 0.2f * Time.deltaTime);
+        transform.eulerAngles = currentRotation;
+        //transform.rotation = Quaternion.Lerp(transform.rotation, playerRotation, 1);
+
+        //InShootingPosition();
     }
 
     void InShootingPosition()

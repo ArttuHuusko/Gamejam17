@@ -90,6 +90,39 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &253013585 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2015657706}
+--- !u!61 &253013586
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253013585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 3.5, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 7, y: 1}
+--- !u!61 &253013587
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253013585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -3.5, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 7, y: 1}
 --- !u!1 &610889793 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010077412876, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4,
@@ -214,11 +247,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 51.9
+      value: 46.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -17.2
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.z
