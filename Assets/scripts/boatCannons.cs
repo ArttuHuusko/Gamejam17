@@ -10,11 +10,23 @@ public class boatCannons : MonoBehaviour {
 	public bool cannonLoaded = true; 
 	public KeyCode Reload = KeyCode.R;
 	public ParticleSystem cannonfire;
+
+    public GameObject cannonReloadUI;
+
+    public sideCannonDrag cannonScript;
+
 	// Use this for initialization
 	void Start () 
     {
         boat = GameObject.Find("playerBoat");
+        cannonLoaded = false;
+        cannonScript = cannonReloadUI.GetComponent<sideCannonDrag>();
 	}
+
+    public void ReloadComplete()
+    {
+        cannonLoaded = true;
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -26,9 +38,8 @@ public class boatCannons : MonoBehaviour {
 				Instantiate (cannonBall, this.transform.position, boat.transform.rotation);
 				cannonLoaded = false;
 				cannonfire.Play ();
+                cannonScript.CannonShot();
 			}
-		}
-		if (Input.GetKeyDown (Reload))
-			cannonLoaded = true;
+		}	
 	}
 }

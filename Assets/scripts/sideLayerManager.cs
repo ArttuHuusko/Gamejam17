@@ -36,7 +36,7 @@ public class sideLayerManager : MonoBehaviour {
 		if (isMoving) 
 		{
 			currentPos += Time.deltaTime * animationSpeed;
-			//float smoothZ = Mathf.SmoothDamp (transform.localPosition.z, nextPosition, ref currentVelocity, animationSpeed);
+			//smoothZ = Mathf.SmoothDamp (startPos, nextPosition, ref currentVelocity, animationSpeed);
 			smoothZ = smootherstep(startPos, nextPosition, currentPos);
 			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, smoothZ * nextPosition * nextPositionMinus);
 			if (smoothZ == 1f) 
