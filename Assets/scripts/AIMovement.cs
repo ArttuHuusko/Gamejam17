@@ -7,8 +7,6 @@ public class AIMovement : MonoBehaviour {
     //TODO: TWEAK NUMBERS, MAKE SO AI BOATS DONT COLLIDE
 
     public float distanceFromPlayer;
-    public float angleToPlayer;
-    public float rotationDiff;
     float t;
     public float engageTimer = 5.0f;
     float engageTimerCopy;
@@ -26,11 +24,9 @@ public class AIMovement : MonoBehaviour {
 
     Quaternion targetRotation;
 
-    bool approaching = false;
     public bool retreating = false;
     public bool facingPlayer = false;
     public bool shootDelayTime = false;
-    bool reloading = false;
     public bool fire = false;
 
     public GameObject player;
@@ -46,7 +42,6 @@ public class AIMovement : MonoBehaviour {
 	void Start () 
     {
        shootDelayCopy = shootDelay;
-       //AICannonsScript = GetComponentsInChildren<AICannons>();
        inFiringPositionCopy = inFiringPosition;
        engageTimerCopy = engageTimer;
        body = GetComponent<Rigidbody2D>();
@@ -65,7 +60,6 @@ public class AIMovement : MonoBehaviour {
 
         Vector3 dir = player.transform.position - transform.position;
         dir = player.transform.InverseTransformDirection(dir);
-        float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         //called after AI shoots or runs out of inFiringPositionTime
         if (retreating == true)
@@ -75,8 +69,6 @@ public class AIMovement : MonoBehaviour {
             float rot_zAway = Mathf.Atan2(diffAway.y, diffAway.x) * Mathf.Rad2Deg;
             rot_zAway = rot_zAway + 180;
             transform.rotation = Quaternion.Euler(0f, 0f, rot_zAway - 90);
-
-            Vector3 rotationDiff = transform.rotation.eulerAngles; //possibly useless check when avaliable
 
             currentRotationRet = transform.eulerAngles;
             currentRotationRet.z = Mathf.Lerp(currentRotation.z, rot_zAway, maxTurnRate * Time.deltaTime);
@@ -120,7 +112,6 @@ public class AIMovement : MonoBehaviour {
         if (reloadingTime > 0)
         {
             shootDelayTime = false;
-            //shootDelay = shootDelayCopy;
         }
 
 
@@ -143,7 +134,6 @@ public class AIMovement : MonoBehaviour {
     //turns boat when it is close to player
     void BeginEngaging()
     {
-        //inFiringPosition -= Time.fixedDeltaTime;
         var newRotation = Quaternion.LookRotation(transform.position - player.transform.position, Vector3.forward);
         newRotation.x = 0.0f;
         newRotation.y = 0.0f;
@@ -155,15 +145,11 @@ public class AIMovement : MonoBehaviour {
     void TurnToShootingPosition()
     {
         //calculates angles and differences between player and AIboat
-        //may have useless stuff check later
         facingPlayer = false;
         float playerRotation = player.transform.localEulerAngles.z;
-        Vector3 rotationDiff = transform.rotation.eulerAngles;
         currentRotation = transform.eulerAngles;
         currentRotation.z = Mathf.Lerp(currentRotation.z, playerRotation, 0.2f * Time.deltaTime);
         transform.eulerAngles = currentRotation;
-
-        //InShootingPosition();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -173,7 +159,6 @@ public class AIMovement : MonoBehaviour {
         {
             shootDelayTime = true;
             retreating = true;
-            //StartCoroutine(Reload());
         }
         if (inFiringPosition <= 0)
         {
