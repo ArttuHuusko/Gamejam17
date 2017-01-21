@@ -123,34 +123,11 @@ BoxCollider2D:
   m_Offset: {x: -3.5, y: 0}
   serializedVersion: 2
   m_Size: {x: 7, y: 1}
---- !u!1 &610889793 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010077412876, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2058870714}
 --- !u!50 &610889794 stripped
 Rigidbody2D:
   m_PrefabParentObject: {fileID: 50000011607415430, guid: d7b46de4fda2e7c4ebc603dfd61ffeb4,
     type: 2}
   m_PrefabInternal: {fileID: 2058870714}
---- !u!114 &610889795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 610889793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a1f62f365c4ea4caa8d71cd30f3ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rig: {fileID: 0}
-  moveSpeed: 0
-  maxSpeed: 10
-  acceleration: 10
-  deceleration: 10
-  turnSpeed: 0
-  maxTurnSpeed: 0
 --- !u!1 &1445404516
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,11 +224,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.3
+      value: 55.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.5
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -289,6 +266,11 @@ Prefab:
     - target: {fileID: 4000012572460084, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
+        type: 2}
+      propertyPath: maxTurnRate
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}

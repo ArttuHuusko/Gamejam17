@@ -21,9 +21,11 @@ GameObject:
   - 4: {fileID: 4000011371470382}
   - 212: {fileID: 212000012581695498}
   - 50: {fileID: 50000011607415430}
+  - 114: {fileID: 114000010558727854}
+  - 61: {fileID: 61000012285084038}
   m_Layer: 0
   m_Name: boat1
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010077412876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.1, y: -9.67, z: 0}
+  m_LocalPosition: {x: -20.07, y: -10.5, z: 0}
   m_LocalScale: {x: 4, y: 8, z: 4}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -296,6 +298,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61000012285084038
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010077412876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!61 &61000012429615796
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -366,6 +382,26 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
+--- !u!114 &114000010558727854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010077412876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a1f62f365c4ea4caa8d71cd30f3ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rig: {fileID: 0}
+  moveSpeed: 0
+  maxSpeed: 10
+  acceleration: 10
+  deceleration: 10
+  turnSpeed: 0
+  maxTurnSpeed: 0
 --- !u!114 &114000012395164354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,6 +416,8 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
 --- !u!114 &114000013112202732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -394,6 +432,8 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
 --- !u!114 &114000013201556414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -408,6 +448,8 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
 --- !u!114 &114000013454005404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,6 +464,8 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
 --- !u!114 &114000013872584768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,6 +480,8 @@ MonoBehaviour:
   boat: {fileID: 0}
   CannonShoot: 116
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  cannonLoaded: 1
+  Reload: 114
 --- !u!212 &212000010246452686
 SpriteRenderer:
   m_ObjectHideFlags: 1

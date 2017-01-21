@@ -7,10 +7,21 @@ public class AIMovement : MonoBehaviour {
     float distanceFromPlayer;
     float angleToPlayer;
     float rotationDiff;
+    float t;
+
+    public float engageTimer = 5.0f;
+    float engageTimerCopy;
 
     Vector3 currentRotation;
+    Vector3 currentRotationRet;
+    Vector3 currentRotationEng;
+    Vector3 moveTarget;
 
-    bool turning = false;
+    Quaternion targetRotation;
+
+    bool approaching = false;
+    bool retreating = false;
+    public bool facingPlayer = false;
 
     //Quaternion playerRotation = Quaternion.identity;
 
@@ -18,15 +29,14 @@ public class AIMovement : MonoBehaviour {
     public Rigidbody2D body;
     public float Speed = 10f;
     public float maxSpeed = 10;
+    public float maxTurnRate = 0.5f;
 
 	// Use this for initialization
 	void Start () 
     {
+       engageTimerCopy = engageTimer;
        body = GetComponent<Rigidbody2D>();
-
-       //VAIHDA JOS PELAAJAN NIMI VAIHTUU SCENESSÄ
-       //recommended -> player = GameObject.FindWithTag("player");
-       player = GameObject.Find("boat");
+       player = GameObject.FindWithTag("player");
        
 	}
 	
@@ -34,53 +44,79 @@ public class AIMovement : MonoBehaviour {
 	void FixedUpdate () 
     {
 
+        //IF TIME MAKE BOAT START TURNING SLOW AND SPEED UP THE MORE IT TURNS (angularVelocity)
+
         float distanceFromPlayer = Vector2.Distance(player.transform.position, transform.position);
 
         Vector3 dir = player.transform.position - transform.position;
         dir = player.transform.InverseTransformDirection(dir);
         float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-       // Debug.Log(dir);
-        //Debug.Log(angleToPlayer);
-
-        Debug.Log(distanceFromPlayer);
-
-        if (distanceFromPlayer > 50f)
+        if (retreating == true)
         {
-            ApproachPlayer();
+            Vector3 diffAway = player.transform.position - transform.position;
+            diffAway.Normalize();
+            float rot_zAway = Mathf.Atan2(diffAway.y, diffAway.x) * Mathf.Rad2Deg;
+            rot_zAway = rot_zAway + 180;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_zAway - 90);
+
+            //float playerRotationRet = player.transform.localEulerAngles.z;
+            Vector3 rotationDiff = transform.rotation.eulerAngles; //possibly useless check when avaliable
+
+            currentRotationRet = transform.eulerAngles;
+            currentRotationRet.z = Mathf.Lerp(currentRotation.z, rot_zAway, maxTurnRate * Time.deltaTime);
+            transform.eulerAngles = currentRotationRet;
+
+            if (engageTimer > 0)
+            {
+                engageTimer = engageTimer - Time.fixedDeltaTime;
+            }
+            else if (engageTimer <= 0)
+            {
+                retreating = false;
+                engageTimer = engageTimerCopy;
+            }
         }
-        else if (turning == false)
+        else if (distanceFromPlayer > 50f)
+        {
+            BeginEngaging();
+        }
+        else
         {
             TurnToShootingPosition();
-            //turning = true;
         }
 
+        
+
+        //moves boat forward at maxSpeed and doesnt let it go over that value
         if(body.velocity.magnitude > maxSpeed)
         {
             body.velocity = body.velocity.normalized * maxSpeed;
         }
-
         body.AddRelativeForce(Vector2.up * Speed);
+        //moves boat forward at maxSpeed and doesnt let it go over that value
+        if (body.angularVelocity > maxTurnRate)
+        {
+            body.angularVelocity = maxTurnRate;
+        }
 
-       //if (shootingPosChosen == true)
-       //{
-       //    chosenPlayerShootingPos 
-       //}
 	}
 
-    //works as intended as far as i know
-    void ApproachPlayer()
+    //moves boat straight towards player
+    void BeginEngaging()
     {
-        Vector3 diff = player.transform.position - transform.position;
-        diff.Normalize();
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-        //transform.rotation = Vector2.MoveTowards(transform.position, player.transform.position, Speed);
+
+        var newRotation = Quaternion.LookRotation(transform.position - player.transform.position, Vector3.forward);
+        newRotation.x = 0.0f;
+        newRotation.y = 0.0f;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, maxTurnRate);
+
     }
 
     //make it so the boat turns slowly this function does not differ from void InShootingPosition() right now 
     void TurnToShootingPosition()
     {
+        facingPlayer = false;
         float playerRotation = player.transform.localEulerAngles.z;
         Vector3 rotationDiff = transform.rotation.eulerAngles;
         //rotationDiff = playerRotation.z - transform.rotation.z;
@@ -92,11 +128,22 @@ public class AIMovement : MonoBehaviour {
         //InShootingPosition();
     }
 
+    //never called right now
     void InShootingPosition()
     {
         Quaternion rotation = Quaternion.LookRotation
             (player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "player")
+        {
+            //Fire after like half a second or smth.
+            //also make failsafe if trigger doesnt hit so AI doesnt get stuck
+            retreating = true;
+        }
     }
 
    
