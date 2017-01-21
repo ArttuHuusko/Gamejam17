@@ -43,7 +43,6 @@ GameObject:
   - 4: {fileID: 4000011377174242}
   - 212: {fileID: 212000010335695942}
   - 61: {fileID: 61000011013742864}
-  - 114: {fileID: 114000013614459596}
   m_Layer: 0
   m_Name: cannon (5)
   m_TagString: cannonRight
@@ -61,10 +60,26 @@ GameObject:
   - 4: {fileID: 4000012411380402}
   - 212: {fileID: 212000011670874602}
   - 61: {fileID: 61000014151359786}
-  - 114: {fileID: 114000013043638560}
   m_Layer: 0
   m_Name: cannon
   m_TagString: cannonLeft
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000011944408922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013065187978}
+  - 61: {fileID: 61000011235836858}
+  - 114: {fileID: 114000013054942156}
+  m_Layer: 0
+  m_Name: DodgeCollider
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +94,6 @@ GameObject:
   - 4: {fileID: 4000013937243012}
   - 212: {fileID: 212000011398159484}
   - 61: {fileID: 61000011730435436}
-  - 114: {fileID: 114000012951413832}
   m_Layer: 0
   m_Name: cannon (3)
   m_TagString: cannonRight
@@ -97,7 +111,6 @@ GameObject:
   - 4: {fileID: 4000011412058448}
   - 212: {fileID: 212000011676623048}
   - 61: {fileID: 61000011849142322}
-  - 114: {fileID: 114000011979413866}
   m_Layer: 0
   m_Name: cannon (2)
   m_TagString: cannonLeft
@@ -151,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010514953840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.633366, y: -2.9057121, z: 0}
+  m_LocalPosition: {x: -15.08, y: -4.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -159,8 +172,22 @@ Transform:
   - {fileID: 4000011412058448}
   - {fileID: 4000013937243012}
   - {fileID: 4000011377174242}
+  - {fileID: 4000013065187978}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &4000013065187978
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011944408922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012572460084}
+  m_RootOrder: 4
 --- !u!4 &4000013937243012
 Transform:
   m_ObjectHideFlags: 1
@@ -205,6 +232,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61000011235836858
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011944408922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 1.3}
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 2}
 --- !u!61 &61000011439109608
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -301,13 +342,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromPlayer: 0
-  angleToPlayer: 0
-  rotationDiff: 0
   engageTimer: 5
   inFiringPosition: 6
   shootDelay: 0.5
   reloadingTime: 5
   ammo: 1
+  dirNum: 0
   retreating: 0
   facingPlayer: 0
   shootDelayTime: 0
@@ -317,18 +357,6 @@ MonoBehaviour:
   Speed: 2
   maxSpeed: 2
   maxTurnRate: 1.5
-  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
---- !u!114 &114000011979413866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012710537652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
 --- !u!114 &114000012731083174
 MonoBehaviour:
@@ -341,43 +369,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a12cf3d4dfb954ebd8b25719bbab4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  wave: {fileID: 0}
   enemyHp: 1
---- !u!114 &114000012951413832
+--- !u!114 &114000013054942156
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012631238032}
+  m_GameObject: {fileID: 1000011944408922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
+  m_Script: {fileID: 11500000, guid: 90a07e8e0c4e5724ba45abcf51f827ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
---- !u!114 &114000013043638560
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011505938412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
---- !u!114 &114000013614459596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011434755990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a690101587e36d042a6d4e8dd2754496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonBall: {fileID: 1000013784622380, guid: b36a43f96c7f2944fb8c4036a7835ce7, type: 2}
+  parentBoat: {fileID: 0}
+  boatScript: {fileID: 0}
 --- !u!212 &212000010335695942
 SpriteRenderer:
   m_ObjectHideFlags: 1

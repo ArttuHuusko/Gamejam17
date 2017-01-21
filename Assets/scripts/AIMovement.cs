@@ -35,6 +35,8 @@ public class AIMovement : MonoBehaviour {
     public float Speed = 10f;
     public float maxSpeed = 2;
     public float maxTurnRate = 0.5f;
+    float evasionTimer = 2f;
+    float xAxisRestrictor = 0;
 
     public GameObject cannonBall;
 
@@ -118,14 +120,16 @@ public class AIMovement : MonoBehaviour {
             shootDelayTime = false;
         }
 
-
-        
-
         //moves boat forward at maxSpeed and doesnt let it go over that value
         if(body.velocity.magnitude > maxSpeed)
         {
             body.velocity = body.velocity.normalized * maxSpeed;
         }
+
+        Vector3 localVel = transform.InverseTransformDirection(body.velocity);
+        localVel.y = maxSpeed;
+        body.velocity = transform.TransformDirection(localVel);
+
         body.AddRelativeForce(Vector2.up * Speed);
         //moves boat forward at maxSpeed and doesnt let it go over that value
         if (body.angularVelocity > maxTurnRate)
@@ -156,9 +160,12 @@ public class AIMovement : MonoBehaviour {
         transform.eulerAngles = currentRotation;
     }
 
+    public void EvasiveManeuvers()
+    {
+        Debug.Log("PICNIC");
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        
         if (other.tag == "Player")
         {
             shootDelayTime = true;
