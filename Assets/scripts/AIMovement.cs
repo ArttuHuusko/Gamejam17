@@ -104,7 +104,7 @@ public class AIMovement : MonoBehaviour {
                 engageTimer = engageTimerCopy;
             }
         }
-        else if (distanceFromPlayer > 10f) //<--- change number possibly
+        else if (distanceFromPlayer > 6.5f)
         {
             BeginEngaging();
         }
