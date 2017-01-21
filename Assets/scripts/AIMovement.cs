@@ -126,9 +126,11 @@ public class AIMovement : MonoBehaviour {
             body.velocity = body.velocity.normalized * maxSpeed;
         }
 
+        //forces boat local y velocity to 0 i.e disables drifting
         Vector3 localVel = transform.InverseTransformDirection(body.velocity);
         localVel.y = maxSpeed;
         body.velocity = transform.TransformDirection(localVel);
+        //forces boat local y velocity to 0 i.e disables drifting
 
         body.AddRelativeForce(Vector2.up * Speed);
         //moves boat forward at maxSpeed and doesnt let it go over that value

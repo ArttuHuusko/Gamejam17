@@ -22,6 +22,12 @@ public class AIDodge : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
     {
+        //forces boat local y velocity to 0 i.e disables drifting
+        Vector3 localVel = transform.InverseTransformDirection(boatScript.body.velocity);
+        localVel.y = boatScript.maxSpeed;
+        boatScript.body.velocity = transform.TransformDirection(localVel);
+        //forces boat local y velocity to 0 i.e disables drifting
+
         if (evasionActive == true)
         {
             evasionTimer -= Time.fixedDeltaTime;
