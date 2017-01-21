@@ -26,7 +26,7 @@ GameObject:
   - 61: {fileID: 61000011511461984}
   - 61: {fileID: 61000011439109608}
   - 114: {fileID: 114000012731083174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AIBoat1
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 4: {fileID: 4000010659568170}
   - 198: {fileID: 198000013608986628}
   - 199: {fileID: 199000010535856612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: frontWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 4: {fileID: 4000011377174242}
   - 212: {fileID: 212000010335695942}
   - 61: {fileID: 61000011013742864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannon (5)
   m_TagString: cannonRight
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 4: {fileID: 4000012411380402}
   - 212: {fileID: 212000011670874602}
   - 61: {fileID: 61000014151359786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannon
   m_TagString: cannonLeft
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - 4: {fileID: 4000010743298602}
   - 198: {fileID: 198000011575131350}
   - 199: {fileID: 199000012263727398}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannonFiringParticle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - 4: {fileID: 4000013261583190}
   - 198: {fileID: 198000011393318834}
   - 199: {fileID: 199000014091634654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannonFiringParticle (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - 4: {fileID: 4000013404889928}
   - 198: {fileID: 198000011864100224}
   - 199: {fileID: 199000013078008392}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannonFiringParticle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - 4: {fileID: 4000013937243012}
   - 212: {fileID: 212000011398159484}
   - 61: {fileID: 61000011730435436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannon (3)
   m_TagString: cannonRight
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - 4: {fileID: 4000011412058448}
   - 212: {fileID: 212000011676623048}
   - 61: {fileID: 61000011849142322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannon (2)
   m_TagString: cannonLeft
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 4: {fileID: 4000012071807380}
   - 198: {fileID: 198000011269311906}
   - 199: {fileID: 199000011931327664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: backWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - 4: {fileID: 4000012386940386}
   - 198: {fileID: 198000012336255288}
   - 199: {fileID: 199000010912691718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannonFiringParticle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010514953840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.84, y: -5.78, z: 0}
+  m_LocalPosition: {x: 12.9, y: -5.780035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -11464,7 +11464,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 172140581
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7e87f270cc7774b4db0fa6516c75388e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
