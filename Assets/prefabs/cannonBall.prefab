@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013784622380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -3.3665242, y: -2.4973757, z: 0}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.8}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09ac97a8b2aa8e47809e466760cf9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boat: {fileID: 1000012338675966, guid: c5455137af7d3bf4888e3d357cfefd9e, type: 2}
+  boat: {fileID: 0}
   ballSpeed: 10
   body: {fileID: 50000013137367598}
 --- !u!212 &212000013082011336
