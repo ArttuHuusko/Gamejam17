@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee69af7c87430e48adc59e06bdf020c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 1
+  animationSpeed: 0.5
   layerDistance: 3000
   nextPosition: 0
 --- !u!1 &1488246698

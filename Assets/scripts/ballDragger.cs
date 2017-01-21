@@ -9,27 +9,24 @@ public class ballDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public Camera mainCamera;
 	public Canvas mainCanvas;
 
-	void Start()
-	{
-		startPos = transform.position;
-		Debug.Log (startPos);
-	}
-
 	public void OnBeginDrag (PointerEventData eventData)
 	{
+		startPos = transform.position;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
+		Debug.Log (startPos);
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
+		// problem line that I can't get working... shit...
 		Vector3 mouseVector = mainCamera.ScreenToWorldPoint ((Vector3)eventData.position + (Vector3.forward * eventData.pointerDrag.transform.parent.transform.position.z));
-		transform.position = new Vector3 (mouseVector.x, mouseVector.y, mouseVector.z /* + eventData.pointerDrag.transform.parent.transform.localPosition.z*/);
-		Debug.Log (eventData.pointerDrag.transform.parent.transform.position.z);
+
+		transform.position = new Vector3 (mouseVector.x, mouseVector.y, mouseVector.z);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		transform.position = startPos;
+		transform.position = new Vector3(startPos.x, startPos.y, transform.parent.position.z);
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
 	}
 }
