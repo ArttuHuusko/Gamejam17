@@ -6,9 +6,9 @@ public class AIMovement : MonoBehaviour {
 
     //TODO: TWEAK NUMBERS, MAKE SO AI BOATS DONT COLLIDE
 
-    float distanceFromPlayer;
-    float angleToPlayer;
-    float rotationDiff;
+    public float distanceFromPlayer;
+    public float angleToPlayer;
+    public float rotationDiff;
     float t;
     public float engageTimer = 5.0f;
     float engageTimerCopy;
@@ -36,7 +36,7 @@ public class AIMovement : MonoBehaviour {
     public GameObject player;
     public Rigidbody2D body;
     public float Speed = 10f;
-    public float maxSpeed = 10;
+    public float maxSpeed = 2;
     public float maxTurnRate = 0.5f;
 
     public GameObject cannonBall;
@@ -61,6 +61,7 @@ public class AIMovement : MonoBehaviour {
         //IF TIME MAKE BOAT START TURNING SLOW AND SPEED UP THE MORE IT TURNS (angularVelocity)
 
         float distanceFromPlayer = Vector2.Distance(player.transform.position, transform.position);
+        Debug.Log(distanceFromPlayer);
 
         Vector3 dir = player.transform.position - transform.position;
         dir = player.transform.InverseTransformDirection(dir);
@@ -102,7 +103,7 @@ public class AIMovement : MonoBehaviour {
                 engageTimer = engageTimerCopy;
             }
         }
-        else if (distanceFromPlayer > 50f) //<--- change number possibly
+        else if (distanceFromPlayer > 10f) //<--- change number possibly
         {
             BeginEngaging();
         }

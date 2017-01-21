@@ -252,6 +252,16 @@ Prefab:
       propertyPath: m_TagString
       value: cannonLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
+        type: 2}
+      propertyPath: Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011639037978, guid: d83aea187e21ba244980d4c3393b2cd4,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
   m_IsPrefabParent: 0
