@@ -344,6 +344,10 @@ Prefab:
       propertyPath: m_Name
       value: AIBoat1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011944408922, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
+      propertyPath: m_TagString
+      value: dodgeCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61000011235836858, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
@@ -353,7 +357,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011944408922, guid: d83aea187e21ba244980d4c3393b2cd4,
     type: 2}
   m_PrefabInternal: {fileID: 1253464197}
---- !u!58 &1593558749
+--- !u!58 &1593558750
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}

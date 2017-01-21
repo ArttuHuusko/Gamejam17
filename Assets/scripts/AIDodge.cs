@@ -7,10 +7,13 @@ public class AIDodge : MonoBehaviour {
 
     Vector3 currentRotation;
 
+    public GameObject objectToDodge;
+
     public AIMovement boatScript;
 
     bool evasionActive = false;
     float evasionTimer = 3f;
+    public float dirNum;
 
 	// Use this for initialization
 	void Start () 
@@ -22,6 +25,7 @@ public class AIDodge : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
     {
+
         //forces boat local y velocity to 0 i.e disables drifting
         Vector3 localVel = transform.InverseTransformDirection(boatScript.body.velocity);
         localVel.y = boatScript.maxSpeed;
@@ -31,19 +35,8 @@ public class AIDodge : MonoBehaviour {
         if (evasionActive == true)
         {
             evasionTimer -= Time.fixedDeltaTime;
+        }   
 
-           // //moves boat forward at maxSpeed and doesnt let it go over that value
-           // if (boatScript.body.velocity.magnitude > boatScript.maxSpeed)
-           // {
-           //     boatScript.body.velocity = boatScript.body.velocity.normalized * boatScript.maxSpeed;
-           // }
-           // boatScript.body.AddRelativeForce(Vector2.up * boatScript.Speed);
-           // //moves boat forward at maxSpeed and doesnt let it go over that value
-           // if (boatScript.body.angularVelocity > boatScript.maxTurnRate)
-           // {
-           //     boatScript.body.angularVelocity = boatScript.maxTurnRate;
-           // }
-        }
         if (evasionTimer <= 0)
         {
             evasionActive = false;
@@ -51,11 +44,33 @@ public class AIDodge : MonoBehaviour {
             evasionTimer = 3f;
         }
 
+
+
 	}
+    float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
+    {
+        Vector3 perp = Vector3.Cross(fwd, targetDir);
+        float dir = Vector3.Dot(perp, up);
+        if (dir > 0f)
+        {
+            return 1f;
+        }
+        else if (dir < 0f)
+        {
+            return -1f;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "enemy")
+        if (other.tag == "dodgeCollider")
         {
+
+            objectToDodge = other.gameObject;
+
             boatScript.enabled = false;
 
             currentRotation = transform.eulerAngles;

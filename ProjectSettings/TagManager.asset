@@ -11,6 +11,7 @@ TagManager:
   - sideLayers
   - enemyFire
   - spawner
+  - dodgeCollider
   layers:
   - Default
   - TransparentFX

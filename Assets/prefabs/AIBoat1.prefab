@@ -75,11 +75,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013065187978}
-  - 61: {fileID: 61000011235836858}
   - 114: {fileID: 114000013054942156}
+  - 58: {fileID: 58000010221938128}
   m_Layer: 0
   m_Name: DodgeCollider
-  m_TagString: enemy
+  m_TagString: dodgeCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010514953840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.08, y: -4.66, z: 0}
+  m_LocalPosition: {x: 19, y: -3.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -218,6 +218,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58000010221938128
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011944408922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!61 &61000011013742864
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -232,20 +246,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!61 &61000011235836858
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011944408922}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.3}
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 2}
 --- !u!61 &61000011439109608
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -384,7 +384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBoat: {fileID: 0}
+  objectToDodge: {fileID: 0}
   boatScript: {fileID: 0}
+  dirNum: 0
 --- !u!212 &212000010335695942
 SpriteRenderer:
   m_ObjectHideFlags: 1
