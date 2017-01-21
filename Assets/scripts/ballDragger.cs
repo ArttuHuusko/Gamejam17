@@ -9,16 +9,22 @@ public class ballDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public Camera mainCamera;
 	public Canvas mainCanvas;
 
-	public void OnBeginDrag (PointerEventData eventData)
+	void Start()
 	{
 		startPos = transform.position;
+		Debug.Log (startPos);
+	}
+
+	public void OnBeginDrag (PointerEventData eventData)
+	{
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		transform.position = mainCamera.ScreenToWorldPoint ((Vector3)eventData.position + (Vector3.forward * mainCanvas.planeDistance));
-		Debug.Log (mainCamera.ScreenToWorldPoint (eventData.position));
+		Vector3 mouseVector = mainCamera.ScreenToWorldPoint ((Vector3)eventData.position + (Vector3.forward * eventData.pointerDrag.transform.parent.transform.position.z));
+		transform.position = new Vector3 (mouseVector.x, mouseVector.y, mouseVector.z /* + eventData.pointerDrag.transform.parent.transform.localPosition.z*/);
+		Debug.Log (eventData.pointerDrag.transform.parent.transform.position.z);
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
