@@ -6,9 +6,9 @@ public class sideLayerManager : MonoBehaviour {
 
 	bool isMoving = false;
 	float currentVelocity;
-	float startPos;
-	float currentPos;
-	float smoothZ;
+	public float startPos;
+	public float currentPos;
+	public float smoothZ;
 	int nextPositionMinus = 1;
 	public float animationSpeed = 1f;
 	public float layerDistance = 3000f;
@@ -21,10 +21,8 @@ public class sideLayerManager : MonoBehaviour {
 
 	void Update () 
 	{
-
 		if (Input.mouseScrollDelta.y != 0f && isMoving == false)
 		{
-			isMoving = true;
 			startPos = transform.localPosition.z;
 			currentPos = 0f;
 			nextPositionMinus = 1;
@@ -32,6 +30,7 @@ public class sideLayerManager : MonoBehaviour {
 				nextPosition = transform.localPosition.z + layerDistance;
 			if (Input.mouseScrollDelta.y > 0)
 				nextPositionMinus = -1;
+			isMoving = true;
 		}
 
 		if (isMoving) 
@@ -40,8 +39,10 @@ public class sideLayerManager : MonoBehaviour {
 			//float smoothZ = Mathf.SmoothDamp (transform.localPosition.z, nextPosition, ref currentVelocity, animationSpeed);
 			smoothZ = smootherstep(startPos, nextPosition, currentPos);
 			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, smoothZ * nextPosition * nextPositionMinus);
-			if (smoothZ == 1f)
+			if (smoothZ == 1f) 
+			{
 				isMoving = false;
+			}
 		}
 	}
 
