@@ -40,7 +40,10 @@ public class AIMovement : MonoBehaviour {
 
     public GameObject cannonBall;
 
-
+	public ParticleSystem cannonfire;
+	public ParticleSystem cannonfire2;
+	public ParticleSystem cannonfire3;
+	public ParticleSystem cannonfire4;
 	// Use this for initialization
 	void Start () 
     {
@@ -205,12 +208,16 @@ public class AIMovement : MonoBehaviour {
         if (dirNum == -1)
         {
             Instantiate(cannonBall, transform.FindChild("cannon").transform.position, this.transform.rotation);
+			cannonfire.Play ();
             Instantiate(cannonBall, transform.FindChild("cannon (2)").transform.position, this.transform.rotation);
+			cannonfire2.Play ();
         }
         else
         {
             Instantiate(cannonBall, transform.FindChild("cannon (3)").transform.position, this.transform.rotation);
+			cannonfire3.Play ();
             Instantiate(cannonBall, transform.FindChild("cannon (5)").transform.position, this.transform.rotation);
+			cannonfire4.Play ();
         }
         
     }

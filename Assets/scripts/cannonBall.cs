@@ -10,6 +10,7 @@ public class cannonBall : MonoBehaviour
     public Rigidbody2D body;
 	public ParticleSystem ripple;
 	public float maxSpeed = 15f;
+	public bool enemyBall;
     // Use this for initialization
     void Start()
     {
@@ -49,18 +50,21 @@ public class cannonBall : MonoBehaviour
     }
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == "enemy")
+		if(enemyBall == false)
 		{
-			enemyHealth eh = (enemyHealth) coll.transform.GetComponent("enemyHealth");
-			eh.takeDamage ();
-			Destroy (this.gameObject);
+			if (coll.gameObject.tag == "enemy")
+			{
+				enemyHealth eh = (enemyHealth) coll.transform.GetComponent("enemyHealth");
+				eh.takeDamage ();
+				Destroy (this.gameObject);
+			}
+			/*else if (coll.gameObject.tag == "player")
+			{
+				playerHealth ph = (playerHealth) coll.transform.GetComponent("playerHealth");
+				ph.takeDamage ();
+				Destroy (this.gameObject);
+			}*/
 		}
-		/*else if (coll.gameObject.tag == "player")
-		{
-			playerHealth ph = (playerHealth) coll.transform.GetComponent("playerHealth");
-			ph.takeDamage ();
-			Destroy (this.gameObject);
-		}*/
 	}
 	IEnumerator killThis ()
 	{
