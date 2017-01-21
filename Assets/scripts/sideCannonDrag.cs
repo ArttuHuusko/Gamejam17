@@ -5,8 +5,11 @@ using UnityEngine.EventSystems;
 
 public class sideCannonDrag : MonoBehaviour, IDropHandler
 {
+	public Sprite loadedCannon;
+	public Sprite unloadedCannon;
+
 	public void OnDrop(PointerEventData eventData)
 	{
-		GetComponent<Image> ().color = Random.ColorHSV ();
+		GetComponent<Image> ().sprite = loadedCannon;
 	}
 }
