@@ -35,8 +35,6 @@ public class AIMovement : MonoBehaviour {
     public float Speed = 10f;
     public float maxSpeed = 2;
     public float maxTurnRate = 0.5f;
-    float evasionTimer = 2f;
-    float xAxisRestrictor = 0;
 
     public GameObject cannonBall;
 

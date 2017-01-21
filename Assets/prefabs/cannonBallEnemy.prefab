@@ -23,7 +23,7 @@ GameObject:
   - 50: {fileID: 50000012454606984}
   - 58: {fileID: 58000012457065214}
   - 114: {fileID: 114000012712430402}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannonBallEnemy
   m_TagString: enemyFire
   m_Icon: {fileID: 0}

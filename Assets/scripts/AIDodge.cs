@@ -14,7 +14,6 @@ public class AIDodge : MonoBehaviour {
 
     bool evasionActive = false;
     bool colliding = false;
-    float collidingTime = 1;
     float evasionTimer = 1.5f;
     public float dirNum;
 

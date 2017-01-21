@@ -36,7 +36,6 @@ public class Spawner : MonoBehaviour {
 		{
 			i = Random.Range(0,3);
 			Transform pos = spawnPoints[i];
-			Quaternion spawnRotation = Quaternion.identity;
 			if (waveCounter == 1) 
 			{
 				if (spawnCounter < 8)
