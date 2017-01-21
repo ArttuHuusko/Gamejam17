@@ -9,7 +9,7 @@ public class ShipMovement : MonoBehaviour {
 	public float acceleration = 10;
 	public float deceleration = 10;
 	public float turnSpeed = 0;
-	public float maxTurnSpeed = 0;
+	public float maxTurnSpeed = 1.5f;
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,7 +19,7 @@ public class ShipMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		turnSpeed = moveSpeed / 2;
+		turnSpeed = moveSpeed / 1.5f;
 		if (Input.GetKey (KeyCode.UpArrow) && (moveSpeed < maxSpeed)) {
 			moveSpeed = moveSpeed + acceleration * Time.deltaTime;
 		} 
