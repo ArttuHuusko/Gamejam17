@@ -16,6 +16,7 @@ public class AIMovement : MonoBehaviour {
     float shootDelayCopy;
     public float reloadingTime = 5;
     public float ammo = 1;
+    public float dirNum;
 
     Vector3 currentRotation;
     Vector3 currentRotationRet;
@@ -54,6 +55,9 @@ public class AIMovement : MonoBehaviour {
     {
 
         //IF TIME MAKE BOAT START TURNING SLOW AND SPEED UP THE MORE IT TURNS (angularVelocity)
+
+        Vector3 heading = player.transform.position - transform.position;
+        dirNum = AngleDir(transform.forward, heading, transform.up);
 
         float distanceFromPlayer = Vector2.Distance(player.transform.position, transform.position);
         
@@ -166,14 +170,39 @@ public class AIMovement : MonoBehaviour {
         }
     }
 
+    //calculates if player is on left or right side of this gameobject 1 = right, -1 = left
+    float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
+    {
+        Vector3 perp = Vector3.Cross(fwd, targetDir);
+        float dir = Vector3.Dot(perp, up);
+        if (dir > 0f)
+        {
+            return 1f;
+        }
+        else if (dir < 0f)
+        {
+            return -1f;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
     IEnumerator Firing()
     {
         ammo -= 1;
         yield return new WaitForSeconds(0.3f);
-        Instantiate(cannonBall, transform.FindChild("cannon").transform.position, this.transform.rotation);
-        Instantiate(cannonBall, transform.FindChild("cannon (2)").transform.position, this.transform.rotation);
-        Instantiate(cannonBall, transform.FindChild("cannon (3)").transform.position, this.transform.rotation);
-        Instantiate(cannonBall, transform.FindChild("cannon (5)").transform.position, this.transform.rotation);
+        if (dirNum == -1)
+        {
+            Instantiate(cannonBall, transform.FindChild("cannon").transform.position, this.transform.rotation);
+            Instantiate(cannonBall, transform.FindChild("cannon (2)").transform.position, this.transform.rotation);
+        }
+        else
+        {
+            Instantiate(cannonBall, transform.FindChild("cannon (3)").transform.position, this.transform.rotation);
+            Instantiate(cannonBall, transform.FindChild("cannon (5)").transform.position, this.transform.rotation);
+        }
         
     }
 
