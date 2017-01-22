@@ -9,14 +9,14 @@ public class sideLayerManager : MonoBehaviour {
 	public float startPos;
 	public float currentPos;
 	public float smoothZ;
-	int nextPositionMinus = 1;
+	public int nextPositionMinus = 1;
 	public float animationSpeed = 1f;
 	public float layerDistance = 3000f;
 	public float nextPosition;
 
 	void Start()
 	{
-		//nextPosition = transform.localPosition.z;
+		
 	}
 
 	void Update () 
@@ -27,22 +27,28 @@ public class sideLayerManager : MonoBehaviour {
 			startPos = transform.localPosition.z;
 			currentPos = 0f;
 			nextPositionMinus = 1;
-			if (Input.mouseScrollDelta.y != 0) 
-				nextPosition = transform.localPosition.z + layerDistance;
-			if (Input.mouseScrollDelta.y > 0)
-				nextPositionMinus = -1;
+			smoothZ = 0f;
+			if (Input.mouseScrollDelta.y < 0) 
+			{
+				if (transform.localPosition.z == layerDistance)
+					isMoving = false;
+				nextPosition = layerDistance;
+			}
+			if (Input.mouseScrollDelta.y > 0) 
+			{
+				if (transform.localPosition.z == -layerDistance)
+					isMoving = false;
+				nextPosition = -layerDistance;
+			}
 		}
 
 		if (isMoving) 
 		{
 			currentPos += Time.deltaTime * animationSpeed;
-			//smoothZ = Mathf.SmoothDamp (startPos, nextPosition, ref currentVelocity, animationSpeed);
-			smoothZ = smootherstep(startPos, nextPosition, currentPos);
-			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, smoothZ * nextPosition * nextPositionMinus);
-			if (smoothZ == 1f) 
-			{
+			smoothZ = smootherstep(0f, 1f, currentPos);
+			transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, nextPosition * smoothZ + startPos);
+			if (smoothZ == 1f)
 				isMoving = false;
-			}
 		}
 	}
 
