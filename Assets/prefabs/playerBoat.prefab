@@ -1046,6 +1046,8 @@ MonoBehaviour:
   health: 3
   YouLose: {fileID: 0}
   LoseBack: {fileID: 0}
+  explosion: {fileID: 198000010561126078, guid: b127686ce8ac8bd499539908ffea48b1,
+    type: 2}
 --- !u!114 &114000012506627860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1096,6 +1098,8 @@ MonoBehaviour:
   health: 3
   YouLose: {fileID: 0}
   LoseBack: {fileID: 0}
+  explosion: {fileID: 198000010561126078, guid: b127686ce8ac8bd499539908ffea48b1,
+    type: 2}
 --- !u!114 &114000013056876684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1146,6 +1150,8 @@ MonoBehaviour:
   health: 3
   YouLose: {fileID: 0}
   LoseBack: {fileID: 0}
+  explosion: {fileID: 198000010561126078, guid: b127686ce8ac8bd499539908ffea48b1,
+    type: 2}
 --- !u!198 &198000010041928138
 ParticleSystem:
   m_ObjectHideFlags: 1
