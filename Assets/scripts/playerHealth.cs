@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour {
 
 	public int health = 5;
-
+	public Text YouLose;
 
 	// Use this for initialization
 	void Start () 
@@ -17,8 +18,9 @@ public class playerHealth : MonoBehaviour {
 	{
 		if (health <= 0) 
 		{
-			Debug.Log ("We be sinking mateys!! Abandon ship!");
+			YouLose.text = "Yer ship be sunk matey!";
 			health = 0;
+			StartCoroutine (Restart());
 		}
 	}
 	void OnCollisionEnter2D(Collision2D coll)
@@ -28,16 +30,14 @@ public class playerHealth : MonoBehaviour {
 			takeDamage ();
 			Destroy (coll.gameObject);
 		}
-		/*else if (coll.gameObject.tag == "player")
-		{
-			playerHealth ph = (playerHealth) coll.transform.GetComponent("playerHealth");
-			ph.takeDamage ();
-			Destroy (this.gameObject);
-		}*/
 	}
 	public void takeDamage ()
 	{
 		health--;
-		Debug.Log (gameObject.name);
+	}
+	IEnumerator Restart()
+	{
+		yield return new WaitForSeconds (10);
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
