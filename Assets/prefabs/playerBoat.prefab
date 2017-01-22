@@ -987,7 +987,7 @@ MonoBehaviour:
   - {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
   spawnValues: {x: 0, y: 0, z: 0}
   spawnCounter: 0
-  waveCounter: 1
+  waveCounter: 5
   spawnWait: 1
   startWait: 5
   waveWait: 2
@@ -1042,6 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  YouLose: {fileID: 0}
 --- !u!114 &114000012506627860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  YouLose: {fileID: 0}
 --- !u!114 &114000013056876684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1138,6 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  YouLose: {fileID: 0}
 --- !u!198 &198000010041928138
 ParticleSystem:
   m_ObjectHideFlags: 1
