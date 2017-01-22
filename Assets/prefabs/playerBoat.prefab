@@ -987,7 +987,7 @@ MonoBehaviour:
   - {fileID: 1000010514953840, guid: d83aea187e21ba244980d4c3393b2cd4, type: 2}
   spawnValues: {x: 0, y: 0, z: 0}
   spawnCounter: 0
-  waveCounter: 1
+  waveCounter: 5
   spawnWait: 1
   startWait: 5
   waveWait: 2
