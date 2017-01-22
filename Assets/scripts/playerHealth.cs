@@ -6,7 +6,8 @@ public class playerHealth : MonoBehaviour {
 
 	public int health = 5;
 	public Text YouLose;
-
+	public GameObject LoseBack;
+	public ParticleSystem explosion;
 	// Use this for initialization
 	void Start () 
 	{
@@ -18,6 +19,7 @@ public class playerHealth : MonoBehaviour {
 	{
 		if (health <= 0) 
 		{
+			LoseBack.SetActive (true);
 			YouLose.text = "Yer ship be sunk matey!";
 			health = 0;
 			StartCoroutine (Restart());
@@ -28,6 +30,9 @@ public class playerHealth : MonoBehaviour {
 		if (coll.gameObject.tag == "enemyFire")
 		{
 			takeDamage ();
+			Vector3 spawnPos = coll.transform.position;
+			Quaternion spawnRotation = Quaternion.identity;
+			Instantiate (explosion,spawnPos,spawnRotation);
 			Destroy (coll.gameObject);
 		}
 	}

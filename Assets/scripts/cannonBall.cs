@@ -9,6 +9,7 @@ public class cannonBall : MonoBehaviour
     public float ballSpeed = 20f;
     public Rigidbody2D body;
 	public ParticleSystem ripple;
+	public ParticleSystem explosion;
 	public float maxSpeed = 15f;
 	public bool enemyBall;
 
@@ -93,6 +94,9 @@ public class cannonBall : MonoBehaviour
 			{
 				enemyHealth eh = (enemyHealth) coll.transform.GetComponent("enemyHealth");
 				eh.takeDamage ();
+				Vector3 spawnPos = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
+				Quaternion spawnRotation = Quaternion.identity;
+				Instantiate (explosion,spawnPos,spawnRotation);
 				Destroy (this.gameObject);
 			}
 			/*else if (coll.gameObject.tag == "player")

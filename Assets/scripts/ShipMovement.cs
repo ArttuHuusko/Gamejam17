@@ -20,7 +20,7 @@ public class ShipMovement : MonoBehaviour {
 	void FixedUpdate () 
 	{
 		turnSpeed = moveSpeed / 1.5f;
-		if (Input.GetKey (KeyCode.UpArrow) && (moveSpeed < maxSpeed)) {
+		if (Input.GetKey (KeyCode.UpArrow)&& (moveSpeed < maxSpeed)||Input.GetKey (KeyCode.W) && (moveSpeed < maxSpeed)) {
 			moveSpeed = moveSpeed + acceleration * Time.deltaTime;
 		} 
 		else
@@ -33,11 +33,11 @@ public class ShipMovement : MonoBehaviour {
 			
 		
 		transform.position += transform.up * Time.deltaTime * moveSpeed;
-		if (Input.GetKey(KeyCode.LeftArrow)) 
+		if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A)) 
 		{
 			transform.Rotate (Vector3.forward * turnSpeed);
 		}
-		if (Input.GetKey(KeyCode.RightArrow)) 
+		if (Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D)) 
 		{
 			transform.Rotate (Vector3.forward * -turnSpeed);
 		}

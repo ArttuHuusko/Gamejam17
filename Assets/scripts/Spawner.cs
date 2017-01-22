@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class Spawner : MonoBehaviour {
 	public int currentWave;
 	public Transform[] spawnPoints;
 	public int i;
+	public GameObject WinBack;
+	public Text WinText;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (SpawnWave ());
@@ -79,6 +82,12 @@ public class Spawner : MonoBehaviour {
 			/*	if (spawnCounter > 4 && spawnCounter < 8)
 					Instantiate (enemyArray [2], pos.position, pos.rotation); */
 			}
+			if (waveCounter == 6) 
+			{
+				StartCoroutine (Restart ());
+				WinBack.SetActive(true);
+				WinText.text = "The royal navy got a meetin' with Ol' Davy Jones!";
+			}
 			spawnCounter ++ ;
 			yield return new WaitForSeconds (spawnWait);
 
@@ -91,5 +100,10 @@ public class Spawner : MonoBehaviour {
 		}
 		yield return new WaitForSeconds (waveWait);
 		spawning = true;
+	}
+	IEnumerator Restart()
+	{
+		yield return new WaitForSeconds (10);
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
