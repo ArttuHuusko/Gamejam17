@@ -92,6 +92,7 @@ MonoBehaviour:
   ripple: {fileID: 198000014149184728, guid: ab42adf3713e28142a83acf667a2a089, type: 2}
   maxSpeed: 45
   enemyBall: 0
+  player: {fileID: 1000012349895722, guid: d894694cbaff92544bf9c061948f9646, type: 2}
 --- !u!212 &212000013082011336
 SpriteRenderer:
   m_ObjectHideFlags: 1
