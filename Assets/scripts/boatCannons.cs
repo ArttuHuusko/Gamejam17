@@ -8,7 +8,7 @@ public class boatCannons : MonoBehaviour {
     public KeyCode CannonShoot = KeyCode.T;
     public GameObject cannonBall;
 	public bool cannonLoaded = true; 
-	public KeyCode Reload = KeyCode.R;
+	//public KeyCode Reload = KeyCode.R;
 	public ParticleSystem cannonfire;
 
     public GameObject cannonReloadUI;

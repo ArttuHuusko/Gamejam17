@@ -4,11 +4,13 @@ using System.Collections;
 public class repairScript : MonoBehaviour {
 
     public playerHealth healthScript;
+	int startHealth;
 
 	// Use this for initialization
 	void Start () 
     {
         healthScript = GetComponent<playerHealth>();
+		startHealth = healthScript.health;
 	}
 	
 	// Update is called once per frame
@@ -19,7 +21,7 @@ public class repairScript : MonoBehaviour {
 
     public void RepairFunc()
     {
-        if (healthScript.health < 10)
+		if (healthScript.health < startHealth)
         {
             healthScript.health++;
         }

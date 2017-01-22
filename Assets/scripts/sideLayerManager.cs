@@ -23,6 +23,7 @@ public class sideLayerManager : MonoBehaviour {
 	{
 		if (Input.mouseScrollDelta.y != 0f && isMoving == false)
 		{
+			isMoving = true;
 			startPos = transform.localPosition.z;
 			currentPos = 0f;
 			nextPositionMinus = 1;
@@ -30,7 +31,6 @@ public class sideLayerManager : MonoBehaviour {
 				nextPosition = transform.localPosition.z + layerDistance;
 			if (Input.mouseScrollDelta.y > 0)
 				nextPositionMinus = -1;
-			isMoving = true;
 		}
 
 		if (isMoving) 
