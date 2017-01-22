@@ -45,14 +45,17 @@ public class AIMovement : MonoBehaviour {
     public ParticleSystem cannonfire5;
     public ParticleSystem cannonfire6;
 
+	AudioSource cannonSound;
+
 	// Use this for initialization
 	void Start () 
     {
-       shootDelayCopy = shootDelay;
-       inFiringPositionCopy = inFiringPosition;
-       engageTimerCopy = engageTimer;
-       body = GetComponent<Rigidbody2D>();
-       player = GameObject.FindWithTag("Player");
+		shootDelayCopy = shootDelay;
+		inFiringPositionCopy = inFiringPosition;
+		engageTimerCopy = engageTimer;
+		body = GetComponent<Rigidbody2D>();
+		player = GameObject.FindWithTag("Player");
+		cannonSound = GetComponent<AudioSource> ();
        
 	}
 	
@@ -214,6 +217,7 @@ public class AIMovement : MonoBehaviour {
 			cannonfire2.Play ();
             Instantiate(cannonBall, transform.FindChild("cannonLB").transform.position, this.transform.rotation);
             cannonfire5.Play();
+			cannonSound.Play ();
         }
         else
         {
@@ -223,6 +227,7 @@ public class AIMovement : MonoBehaviour {
 			cannonfire4.Play ();
             Instantiate(cannonBall, transform.FindChild("cannonRB").transform.position, this.transform.rotation);
             cannonfire6.Play();
+			cannonSound.Play ();
         }
         
     }

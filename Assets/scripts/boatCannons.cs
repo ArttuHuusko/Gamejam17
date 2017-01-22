@@ -14,12 +14,15 @@ public class boatCannons : MonoBehaviour {
     public GameObject cannonReloadUI;
     public sideCannonDrag cannonScript;
 
+	AudioSource cannonSound;
+
 	// Use this for initialization
 	void Start () 
     {
         boat = GameObject.Find("playerBoat");
         cannonLoaded = false;
         cannonScript = cannonReloadUI.GetComponent<sideCannonDrag>();
+		cannonSound = GetComponent<AudioSource> ();
 	}
 
     public void ReloadComplete()
@@ -36,6 +39,7 @@ public class boatCannons : MonoBehaviour {
 			{
 				Instantiate (cannonBall, this.transform.position, boat.transform.rotation);
 				cannonLoaded = false;
+				cannonSound.Play ();
 				cannonfire.Play ();
                 cannonScript.CannonShot();
 			}
