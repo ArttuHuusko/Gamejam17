@@ -12,7 +12,6 @@ public class boatCannons : MonoBehaviour {
 	public ParticleSystem cannonfire;
 
     public GameObject cannonReloadUI;
-
     public sideCannonDrag cannonScript;
 
 	// Use this for initialization

@@ -16,10 +16,6 @@ public class ballDragger : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Debug.Log (startPos);
 	}
 
-    public void Test()
-    {
-        Debug.Log("kukkuu");
-    }
 
 	public void OnDrag(PointerEventData eventData)
 	{
