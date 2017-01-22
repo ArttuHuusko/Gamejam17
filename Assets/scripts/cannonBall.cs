@@ -11,6 +11,9 @@ public class cannonBall : MonoBehaviour
 	public ParticleSystem ripple;
 	public float maxSpeed = 15f;
 	public bool enemyBall;
+
+    public GameObject player;
+
     // Use this for initialization
     void Start()
     {
@@ -21,22 +24,56 @@ public class cannonBall : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
 		spawnValues = transform.position;
-        if (flyRight == true)
+        if (enemyBall == true)
         {
-            body.AddRelativeForce(Vector2.right * ballSpeed);
-			if (body.velocity.magnitude > maxSpeed) 
-			{
-				body.velocity = body.velocity.normalized * maxSpeed;
-			}
+            if (flyRight == true)
+            {
+                body.AddRelativeForce(Vector2.right * ballSpeed);
+                if (body.velocity.magnitude > maxSpeed)
+                {
+
+                    Quaternion rotation = Quaternion.LookRotation
+                    (player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
+                    transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+
+                    body.velocity = body.velocity.normalized * maxSpeed;
+                }
+            }
+            else
+            {
+                body.AddRelativeForce(Vector2.left * ballSpeed);
+                if (body.velocity.magnitude > maxSpeed)
+                {
+
+                    Quaternion rotation = Quaternion.LookRotation
+                    (player.transform.position - transform.position, transform.TransformDirection(Vector3.up));
+                    transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+
+
+                    body.velocity = body.velocity.normalized * maxSpeed;
+                }
+            }
         }
         else
         {
-            body.AddRelativeForce(Vector2.left * ballSpeed);
-			if (body.velocity.magnitude > maxSpeed) 
-			{
-				body.velocity = body.velocity.normalized * maxSpeed;
-			}
+            if (flyRight == true)
+            {
+                body.AddRelativeForce(Vector2.right * ballSpeed);
+                if (body.velocity.magnitude > maxSpeed)
+                {
+                    body.velocity = body.velocity.normalized * maxSpeed;
+                }
+            }
+            else
+            {
+                body.AddRelativeForce(Vector2.left * ballSpeed);
+                if (body.velocity.magnitude > maxSpeed)
+                {
+                    body.velocity = body.velocity.normalized * maxSpeed;
+                }
+            }
         }
 
     }
