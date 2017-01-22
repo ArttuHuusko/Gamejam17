@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000011259434882}
   - 198: {fileID: 198000010561126078}
   - 199: {fileID: 199000012476348146}
+  - 114: {fileID: 114000010585598588}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -35,12 +36,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012555503274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.94, y: 0, z: 0}
+  m_LocalPosition: {x: -311.0296, y: 8.271301, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000010585598588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012555503274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c309aee13e347b48896fc6a8ea43094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198000010561126078
 ParticleSystem:
   m_ObjectHideFlags: 1
