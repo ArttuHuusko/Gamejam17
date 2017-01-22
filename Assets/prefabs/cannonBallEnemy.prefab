@@ -73,7 +73,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.2
 --- !u!114 &114000012712430402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,10 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnValues: {x: 0, y: 0, z: 0}
   boat: {fileID: 0}
-  ballSpeed: 30
+  ballSpeed: 50
   body: {fileID: 50000012454606984}
   ripple: {fileID: 198000014149184728, guid: ab42adf3713e28142a83acf667a2a089, type: 2}
-  maxSpeed: 10
+  maxSpeed: 45
   enemyBall: 1
 --- !u!212 &212000012971045500
 SpriteRenderer:

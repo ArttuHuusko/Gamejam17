@@ -40,23 +40,23 @@ public class Spawner : MonoBehaviour {
 			Quaternion spawnRotation = Quaternion.identity;
 			if (waveCounter == 1) 
 			{
-				currentWave = 2;
-				if (spawnCounter < 2)
+				currentWave = 6;
+				if (spawnCounter < 6)
 					Instantiate (enemyArray [0], pos.position, pos.rotation);
 				
 			}
 			if (waveCounter == 2) 
 			{
-				currentWave = 4;
-				if (spawnCounter < 4)
+				currentWave = 10;
+				if (spawnCounter < 10)
 					Instantiate (enemyArray [0], pos.position, pos.rotation);
 			/*	if (spawnCounter > 5 && spawnCounter < 8)
 					Instantiate (enemyArray [1], pos.position, pos.rotation);	*/
 			}
 			if (waveCounter == 3) 
 			{
-				currentWave = 6;
-				if (spawnCounter < 6)
+				currentWave = 13;
+				if (spawnCounter < 13)
 					Instantiate (enemyArray [0], pos.position, pos.rotation);
 			/*	if (spawnCounter > 3 && spawnCounter < 7)
 					Instantiate (enemyArray [1], pos.position, pos.rotation);
@@ -65,16 +65,16 @@ public class Spawner : MonoBehaviour {
 			}
 			if (waveCounter == 4) 
 			{
-				currentWave = 8;
-				if (spawnCounter < 8)
+				currentWave = 16;
+				if (spawnCounter < 16)
 					Instantiate (enemyArray [1], pos.position, pos.rotation);
 			/*	if (spawnCounter > 5 && spawnCounter < 8)
 					Instantiate (enemyArray [2], pos.position, pos.rotation); */
 			}
 			if (waveCounter == 5) 
 			{
-				currentWave = 10;
-				if (spawnCounter < 10)
+				currentWave = 23;
+				if (spawnCounter < 23)
 					Instantiate (enemyArray [1], pos.position, pos.rotation);
 			/*	if (spawnCounter > 4 && spawnCounter < 8)
 					Instantiate (enemyArray [2], pos.position, pos.rotation); */

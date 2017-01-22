@@ -65,9 +65,9 @@ public class statScene : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		TopHp.text = TopHealth.health.ToString();
-		MidHp.text = MidHealth.health.ToString();
-		BotHp.text = BotHealth.health.ToString();
+		TopHp.text = "HP: " + TopHealth.health.ToString();
+		MidHp.text = "HP: " + MidHealth.health.ToString();
+		BotHp.text = "HP: " + BotHealth.health.ToString();
 
 		WaveProgress.text = "Enemies Killed: " + spawnStats.waveProgress + "/" + spawnStats.currentWave;
 		Wavenumber.text = "Wave: " + spawnStats.waveCounter;
